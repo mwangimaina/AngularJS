@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Introduction to bootstrap
 Concepts in bootstrap:
 - Responsiveness:
@@ -43,3 +44,6 @@ NB: All column sizes within a row MUST add up to 12
 - Viewport
 
 - Charset and lang attributes(for il18)
+=======
+# bootstrap_evening
+>>>>>>> 222c8c552e9d217f88a027104ef2cfb9f7907eff
