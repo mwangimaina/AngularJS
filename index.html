@@ -1,32 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="MyApp">
 <head>
-		<title>Muthuri and Others Dev Agency</title>
-	    <meta charset="utf-8"/>
-	    <meta name="viewport" content="width=device-width,initial-scale=1"/>   
-		<link rel="stylesheet" href="vendor/bootstrap-3.3.5/css/bootstrap.css">
-		<link rel="stylesheet"  href="main.css">
-
+    <title>Muthuri and Others Dev Agency</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>   
+    <link rel="stylesheet" href="vendor/bootstrap-3.3.5/css/bootstrap.css">
+    <link rel="stylesheet" href="vendor/bootstrap-3.3.5/css/jquery-ui.min.css">
+    <script src= "vendor/bootstrap-3.3.5/js/angular.min.js"></script>
+    <link rel="stylesheet"  href="main.css">
 </head>
 <body>
-	<div class="container-fluid">	
-		 <section class = "row text-center jumbotron" id="slogan">
-			<h1>I Build the Future, and Its Awesome!!</h1>
-			<button type="button" class="btn btn-warning">Go to My Profile</button>
-		</section>
-	</div>
-	<!--TO DO Grid System-->
+      <div class="container-fluid"> 
+           <section class = "row text-center jumbotron" id="slogan">
+            <h1>I Build the Future, and Its Awesome!!</h1>
+            <button type="button" class="btn btn-warning">Go to My Profile</button>
+      </section>
+</div>
+<!--Main Body  - Main Container -->
+<div class="container">
+
+     <section class="row text-center">
+          <div class="page-header text-center" id="projects">
+               <h1>Projects</h1>
+         </div>
+         <div class="col-sm-4">
+               <img src="http://www.planwallpaper.com/static/images/Winter-Tiger-Wild-Cat-Images.jpg" alt="android application" class="img-responsive"/>
+               <p>Find my Ruby on Rails work of several cooprate websites.</p>
+               <a href="#" class="btn btn-default">View Project</a>
+         </div>
+
+         <div class="col-sm-4">
+               <img src="http://www.planwallpaper.com/static/images/Winter-Tiger-Wild-Cat-Images.jpg" alt="NASA air drone strike" class="img-responsive"/>
+               <a href="#" class="btn btn-default">View Project</a>
+         </div>
+
+         <div class="col-sm-4">
+               <img src="http://www.planwallpaper.com/static/images/Winter-Tiger-Wild-Cat-Images.jpg" alt="Go pro site re-design" class="img-responsive"/>
+               <a href="#" class="btn btn-default">View Project</a>
+         </div>
+   </section>
+
+
+   <!--Sample Profile Section with an accordion & tabs - JQUERY UI -->
+   <section class="row">
+    <div class="page-header text-center">
+         <h1>My Profile</h1>
+   </div>
+
+   <div class="col-sm-6">
+         <div id ="accordion">
+              <h3>My Vision</h3>
+              <div>
+                   <p>This is My Vision</p>
+             </div> 
+
+             <h3>My Mission</h3>
+             <div>
+                   <p>This is My Mission</p>
+             </div>
+
+             <h3>My Objective</h3>
+             <div>
+                   <p>This is My Objective</p>
+             </div>
+       </div>
+ </div>
+
+ <div class = "col-sm-6">
+
+   <div id="tabs">
+        <ul>
+             <li><a href="#tabs-1">Nunc tincidunt</a></li>
+             <li><a href="#tabs-2">Proin dolor</a></li>
+             <li><a href="#tabs-3">Aenean lacinia</a></li>
+       </ul>
+       <div id="tabs-1">
+             <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo </p>
+       </div>
+       <div id="tabs-2">
+             <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida </p>
+       </div>
+       <div id="tabs-3">
+             <p>Mauris eleifend est et turpis. Duis id erat. Suspe</p>
+             <p>Duis cursus. Maecenas ligula eros, blandit nec, phare</p>
+       </div>
+ </div>
+</div>
+</section>  
+
+<!--Angular JS Example-->
+<section class="row">
+     <div class="page-header text-center">
+          <h1>My Cars-Angular JS</h1>
+    </div>
+         <!--Here we bind data to html view-->
+      
+
+    <div class="col-sm-12" ng-controller="CarsController">
+
+         <p>Enter Your Name: 
+         <input type="text" ng-model="name">
+         </p>
+          <!--Binding using the name using an ng-directive-->
+         <h2 ng-bind="name"></h2>
+         <!--Binding the name using an expression-->
+         <h2>{{name}}</h2>
+         <p>My first expression: {{ 5 + 5 }}</p>
+
+          
+           <!--Here we bind data form controller to a table-->
+          <input type="text" ng-model="test" placeholder="Enter Car Search Term">
+          <table border="0" width="80%">
+               <tr ng-repeat="x in cars | filter:test">
+                    <td>{{x.model}}</td>
+                    <td>{{x.make}}</td>
+                    <td>{{x.year}}</td>
+                    <td>{{x.type}}</td>
+                    <td><img width="100"  height = "100" ng-src="{{x.image}}"></td>
+              </tr>
+        </table>
+  </div>
+</section>
 
 
 
 
+<section class="row">
+     <div class="page-header text-center">
+          <h1>Angular JS</h1>
+    </div>
+    <!--Here we bind data form controller to table in angular($http)-->
+
+    <div class="col-sm-6" ng-controller="CommentsController">
+
+          <table border="1">
+               <tr ng-repeat="x in names">
+                    <td>{{x.Name}}</td>
+                    <td>{{x.Country}}</td>
+              </tr>
+        </table>
+  </div>
+
+  <!--Angular JS Form With Angular Validations -->
+  <div class="col-sm-6" ng-controller="userController">
+
+    <form name="userForm" ng-submit="formSubmit()" novalidate>
+
+      <div class="form-group">
+          <label>Email</lable>
+             <input type="email" name="email" ng-model="user.useremail" class="form-control"required=""/>
+
+             <span ng-show="userForm.email.$error.required">Tell us your email.</span>
+             <span ng-show="userForm.email.$error.email">This is not a valid email.</span>
+       </div>
+
+
+       <div class="form-group">
+             <label>Select A Movie category</label>
+             <select ng-model="user.category" class="form-control" name="cat" required=""
+             ng-disabled="userForm.email.$invalid">
+                  <option>Comedy</option>
+                  <option>Horror</option>
+                  <option>Action</option>
+                  <option>Thriller</option>
+            </select>
+            <span ng-show="userForm.cat.$error.required">Please Select A Category!!</span>
+      </div>            
+
+
+      <div class="form-group">
+       <label>Payment Mode</label>
+       <input type="radio" ng-model="user.mode" name="mode"   value="Cheque" class="form-control"/>Cheque.  
+
+       <input type="radio" ng-model="user.mode" name="mode"   value="Cash" class="form-control"/>Cash.
+
+       <input type="radio" ng-model="user.mode" name="mode"   value="MPESA" class="form-control"/>MPESA.
+ </div>
+
+
+ <div class="form-group">
+       <label>Select Date</label>
+       <input type = "date" name ="date" ng-model="user.date" class="form-control"/>
+
+ </div>
+ <!--We disable the Button until form is valid!!-->
+ <div class="form-group">
+       <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Send Request</button>
+ </div>     
+
+</form>
+</div>
+</section>
 
 
 
-	<script src ="vendor/bootstrap-3.3.5/js/jquery.min.js"></script>
-	<script src = "vendor/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<!--Footer Section-->
+<footer class ="row">
+    <div class="page-header text-center">
+         <h1>Talk To Us</h1>
+   </div>
 
+   <div class="col-sm-6">
+         <form action="/" method ="post">
+              <div class="form-group">
+                   <label for="inputEmail">Enter Your Email</label>
+                   <input type="email" name="email" id ="inputEmail" placeholder="Enter Your Email" class="form-control"/>
+             </div>
+
+             <div class="form-group">
+                   <label>Leave a Comment</label>
+                   <textarea rows="10" cols="8" name="comment" id="inputComment"
+                   class="form-control" placeholder="Enter Comment"></textarea>
+             </div>
+
+             <button type="button" class="btn btn-warning">Submit Comment</button>
+
+
+       </form>
+ </div>
+
+ <!--Social Media Links-->
+       <div class="col-sm-6 text-center">
+         <a href="your link">
+              <img src = "https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/pinterest-128.png"/>
+        </a>
+
+        <a href="your link">
+              <img src = "https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/twitter-128.png"/>
+        </a>      
+
+        <a href="your link">
+              <img src = "https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/facebook-128.png"/>
+        </a>
+
+      </div>
+</footer>
+</div>
+
+
+ <!--Links to JS files-->
+      <script src ="vendor/bootstrap-3.3.5/js/jquery.min.js"></script>
+      <script src ="vendor/bootstrap-3.3.5/js/jqueryui.js"></script>
+      <script src = "js/jquerywork.js"></script>
+      <script src = "js/appControlllers.js"></script>
+      <script src = "vendor/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 </body>
+
 </html>
 
 
