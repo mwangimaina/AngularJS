@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="MyApp">
 <head>
-    <title>Muthuri and Others Dev Agency</title>
+    <title>Devs and Others Dev Agency</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>   
     <link rel="stylesheet" href="vendor/bootstrap-3.3.5/css/bootstrap.css">
@@ -99,23 +99,26 @@
     <div class="col-sm-12" ng-controller="CarsController">
 
          <p>Enter Your Name: 
-         <input type="text" ng-model="name">
+         <input type="text" ng-model="name" ng-init="num1=500">
          </p>
           <!--Binding using the name using an ng-directive-->
          <h2 ng-bind="name"></h2>
          <!--Binding the name using an expression-->
          <h2>{{name}}</h2>
+         <!--We bind our variable num1 using an expression-->
+         <h2>{{num1}}</h2>
          <p>My first expression: {{ 5 + 5 }}</p>
-
+         
           
-           <!--Here we bind data form controller to a table-->
+           <!--Here we bind data form controller to a table & include table filters-->
           <input type="text" ng-model="test" placeholder="Enter Car Search Term">
           <table border="0" width="80%">
                <tr ng-repeat="x in cars | filter:test">
                     <td>{{x.model}}</td>
-                    <td>{{x.make}}</td>
+                    <td>{{x.make | uppercase}}</td>
                     <td>{{x.year}}</td>
                     <td>{{x.type}}</td>
+                    <td>{{x.cost | currency}}</td>
                     <td><img width="100"  height = "100" ng-src="{{x.image}}"></td>
               </tr>
         </table>
@@ -139,7 +142,7 @@
                     <td>{{x.Country}}</td>
               </tr>
         </table>
-  </div>
+    </div>
 
   <!--Angular JS Form With Angular Validations -->
   <div class="col-sm-6" ng-controller="userController">
@@ -150,11 +153,11 @@
           <label>Email</lable>
              <input type="email" name="email" ng-model="user.useremail" class="form-control"required=""/>
 
-             <span ng-show="userForm.email.$error.required">Tell us your email.</span>
-             <span ng-show="userForm.email.$error.email">This is not a valid email.</span>
+             <span style="color:red" ng-show="userForm.email.$error.required">Tell us your email.</span>
+             <span style="color:red" ng-show="userForm.email.$error.email">This is not a valid email.</span>
        </div>
 
-
+      <!--Here we disable Category control until email is valid-->
        <div class="form-group">
              <label>Select A Movie category</label>
              <select ng-model="user.category" class="form-control" name="cat" required=""
@@ -164,31 +167,32 @@
                   <option>Action</option>
                   <option>Thriller</option>
             </select>
-            <span ng-show="userForm.cat.$error.required">Please Select A Category!!</span>
+            <span style="color:red" ng-show="userForm.cat.$error.required">Please Select A Category!!</span>
       </div>            
 
 
       <div class="form-group">
-       <label>Payment Mode</label>
-       <input type="radio" ng-model="user.mode" name="mode"   value="Cheque" class="form-control"/>Cheque.  
+             <label>Payment Mode</label>
+             <input type="radio" ng-model="user.mode" name="mode"   value="Cheque" class="form-control" required=""/>Cheque.  
 
-       <input type="radio" ng-model="user.mode" name="mode"   value="Cash" class="form-control"/>Cash.
+             <input type="radio" ng-model="user.mode" name="mode"   value="Cash" class="form-control" required=""/>Cash.
 
-       <input type="radio" ng-model="user.mode" name="mode"   value="MPESA" class="form-control"/>MPESA.
- </div>
+             <input type="radio" ng-model="user.mode" name="mode"   value="MPESA" class="form-control" required=""/>MPESA.<br/>
+             <span style="color:red" ng-show="userForm.mode.$error.required">Tell us your Payment mode.</span>
+      </div>
 
 
- <div class="form-group">
-       <label>Select Date</label>
-       <input type = "date" name ="date" ng-model="user.date" class="form-control"/>
+       <div class="form-group">
+              <label>Select Date</label>
+              <input type = "date" name ="date" ng-model="user.date" class="form-control"/>
 
- </div>
- <!--We disable the Button until form is valid!!-->
- <div class="form-group">
-       <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Send Request</button>
- </div>     
+       </div>
+       <!--We disable the Button until form is valid!!-->
+       <div class="form-group">
+             <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Send Request</button>
+       </div>     
 
-</form>
+   </form>
 </div>
 </section>
 
@@ -221,17 +225,17 @@
 
  <!--Social Media Links-->
        <div class="col-sm-6 text-center">
-         <a href="your link">
-              <img src = "https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/pinterest-128.png"/>
-        </a>
+               <a href="your link">
+                    <img src = "https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/pinterest-128.png"/>
+              </a>
 
-        <a href="your link">
-              <img src = "https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/twitter-128.png"/>
-        </a>      
+              <a href="your link">
+                    <img src = "https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/twitter-128.png"/>
+              </a>      
 
-        <a href="your link">
-              <img src = "https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/facebook-128.png"/>
-        </a>
+              <a href="your link">
+                    <img src = "https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/facebook-128.png"/>
+              </a>
 
       </div>
 </footer>

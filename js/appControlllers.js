@@ -15,15 +15,15 @@
             app.controller('CarsController', function($scope) {
         	     //here we store Cars data Model
                  $scope.cars = [
-                 {model:'Toyota',type:'Pickup',year:"2006",make:"Vits",image:"https://i.ytimg.com/vi/g6Rcy9DbcQY/maxresdefault.jpg"},
+                 {model:'Toyota',type:'Pickup',year:"2006",make:"Vits",cost:"5000",image:"https://i.ytimg.com/vi/g6Rcy9DbcQY/maxresdefault.jpg"},
 
-                 {model:'Mazda',type:'Pickup',year:"2006",make:"Suff",image:"http://dreamatico.com/data_images/car/car-1.jpg"},
+                 {model:'Mazda',type:'Pickup',year:"2006",make:"Suff",cost:"6000",image:"http://dreamatico.com/data_images/car/car-1.jpg"},
 
-                 {model:'Toyota',type:'Lorry',year:"2003",make:"Canter",image:"http://www.disney.co.uk/sites/default/files/styles/retina-reduction/public/Cars/GENERIC/Section%20Listings/ICE/msf_cars_ice_lst_characters.jpg"},
+                 {model:'Toyota',type:'Lorry',year:"2003",make:"Canter",cost:"5000",image:"http://www.disney.co.uk/sites/default/files/styles/retina-reduction/public/Cars/GENERIC/Section%20Listings/ICE/msf_cars_ice_lst_characters.jpg"},
 
-                 {model:'Toyota',type:'Pickup',year:"2007",make:"Vits",image:"https://s-media-cache-ak0.pinimg.com/originals/8c/5f/15/8c5f156f1324c03360d691a6ba733a2a.jpg"},
+                 {model:'Toyota',type:'Pickup',year:"2007",make:"Vits",cost:"7000",image:"https://s-media-cache-ak0.pinimg.com/originals/8c/5f/15/8c5f156f1324c03360d691a6ba733a2a.jpg"},
 
-                 {model:'Mitsubish',type:'Canter',year:"2014",make:"Vits",image:"http://www.stuff.co.nz/content/dam/images/1/6/w/k/4/z/image.gallery.galleryLandscape.600x400.16popk.png/1442273612437.jpg"}];
+                 {model:'Mitsubish',type:'Canter',year:"2014",make:"Vits",cost:"8000",image:"http://www.stuff.co.nz/content/dam/images/1/6/w/k/4/z/image.gallery.galleryLandscape.600x400.16popk.png/1442273612437.jpg"}];
 
            });
 
